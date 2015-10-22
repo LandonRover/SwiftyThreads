@@ -34,6 +34,5 @@ Background { () -> () in
         // Code to perform in a background thread
       }.afterInterval(3) { () -> () in
         // Still running? Code here is evaluated on the main thread, if the task is not complete
-        // Optional
       }
 ```
