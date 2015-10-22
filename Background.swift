@@ -34,8 +34,8 @@ class Background {
   func afterInterval(interval: NSTimeInterval, closure: () -> ()) -> Background {
     taskInterval = closure
     let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(interval * Double(NSEC_PER_SEC)))
-    dispatch_after(delayTime, dispatch_get_main_queue()) {
-      taskInterval?()
+    dispatch_after(delayTime, dispatch_get_main_queue()) { [weak self] in
+      self?.taskInterval?()
     }
     return self
   }
