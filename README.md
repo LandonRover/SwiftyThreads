@@ -1,5 +1,5 @@
 # SwiftyThreads
-Pure Swift expressive background thread execution
+Basic Pure Swift expressive background thread execution
 
 ## Usage
 ```Swift
