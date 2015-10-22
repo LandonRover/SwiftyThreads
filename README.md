@@ -36,3 +36,19 @@ Background { () -> () in
         // Still running? Code here is evaluated on the main thread, if the task is not complete
       }
 ```
+
+
+#### Use Case
+```Swift
+let data = ...
+var image: UIImage
+
+Background { () -> () in
+        self.loadingMessage = "Loading image..."
+        image = UIImage(data: data)
+      }.afterInterval(3) { () -> () in
+        self.loadingMessage = "It's taking longer than normal..."
+      }.completion { () -> () in
+        self.loadedImage = image
+      }
+```
