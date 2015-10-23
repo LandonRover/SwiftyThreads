@@ -1,6 +1,6 @@
 //
-//  Backround.swift
-//  Blur
+//  STBackround.swift
+//  SwiftyThreads
 //
 //  Created by Andrew Robinson on 10/22/15.
 //  Copyright © 2015 Andrew Robinson. All rights reserved.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Background {
+class STBackground {
   
   private var done = false {
     didSet {
@@ -31,7 +31,7 @@ class Background {
     }
   }
   
-  func afterInterval(interval: NSTimeInterval, closure: () -> ()) -> Background {
+  func afterInterval(interval: NSTimeInterval, closure: () -> ()) -> STBackground {
     taskInterval = closure
     let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(interval * Double(NSEC_PER_SEC)))
     dispatch_after(delayTime, dispatch_get_main_queue()) { [weak self] in
@@ -40,7 +40,7 @@ class Background {
     return self
   }
   
-  func completion(closure: () -> ()) -> Background {
+  func completion(closure: () -> ()) -> STBackground {
     completion = closure
     return self
   }
